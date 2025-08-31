@@ -95,10 +95,10 @@ def main(args):
     title = (title_header.find(text=True, recursive=False).strip() if title_header else f"module_{mod_id}") if args.name is None else args.name
 
     artist = meta["artist"] if args.artist is None else args.artist
-    genre = meta["genre"] or "Unknown"
+    genre = meta["genre"] or "Unknown" if args.genre is None else args.genre
     fmt = meta["format"].lower() or "mod"
     ext = fmt
-    genre_dir = sanitize_filename(genre) if args.genre is None else args.genre
+    genre_dir = sanitize_filename(genre) 
     base = sanitize_filename(title)
     artist_s = sanitize_filename(artist)
     filename = f"{base}-{artist_s}.{ext}"
@@ -115,7 +115,7 @@ def main(args):
         "MD5": meta["md5"],
         "Format": meta["format"],
         "Channels": meta["channels"],
-        "Genre": meta["genre"],
+        "Genre": genre,
         "Artist": artist, 
 		"RelativePath": dest_path,
     })
