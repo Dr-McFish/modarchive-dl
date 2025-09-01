@@ -127,7 +127,7 @@ def main(args):
           f"  MD5: {meta['md5']}\n"
           f"  Format: {meta['format']}\n"
           f"  Channels: {meta['channels']}\n"
-          f"  Genre: {meta['genre']}\n"
+          f"  Genre: {genre}\n"
           f"  Artist: {artist}\n"
           f"  File location: {dest_path}")
 
